@@ -8,9 +8,9 @@ class PetChoices(models.TextChoices):
 
 
 class Pet(models.Model):
-    name =  models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     age = models.IntegerField()
-    weight = models.DecimalField(max_digits=8, decimal_places=2)
+    weight = models.DecimalField(max_digits=8, decimal_places=1)
     sex = models.CharField(
         max_length=20,
         choices=PetChoices.choices,
@@ -20,14 +20,10 @@ class Pet(models.Model):
     group = models.ForeignKey(
         "groups.Group",
         on_delete=models.PROTECT,
-        null=False,
-        related_name="pets" 
+        null=False, related_name="pets"
     )
 
-    traits = models.ManyToManyField(
-        "traits.Trait",
-        related_name="traits"
-    )
+    traits = models.ManyToManyField("traits.Trait", related_name="traits")
 
     def __repr__(self) -> str:
         return f"<Pet ({self.id}) - {self.name}>"

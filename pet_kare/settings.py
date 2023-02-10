@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-3)!y#smgx+iw4t_1qp^@wgqr#cgf=zcj6ydi9-avp%+9@1)10@"
+SECRET_KEY = "django-insecure-hw(^bjtv9%r#it5&czc9z5o87$1u29@x4dx&a*@j$ct5c3n!-n"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -114,6 +114,12 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 2,
+}
 
 
 # Static files (CSS, JavaScript, Images)
